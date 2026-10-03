@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>#𝗥𝗔𝗗𝗛𝗘𝗬 - Honoured one</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F6FF;--card:#fff;--ink:#16193A;--mut:#60648A;--line:#E0E2F5;--blue:#3B6CF6;--yel:#F5B800;--soft:#E9EEFF;--code:#12152E;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0F24;--card:#151936;--ink:#EBEDFF;--mut:#9CA1CF;--line:#272C57;--blue:#6C8DFF;--soft:#1D2350;--code:#090B1C}}
+:root[data-theme="dark"]{--bg:#0C0F24;--card:#151936;--ink:#EBEDFF;--mut:#9CA1CF;--line:#272C57;--blue:#6C8DFF;--soft:#1D2350;--code:#090B1C}
+*{box-sizing:border-box}html{height:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Quicksand,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5em}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.w{max-width:1040px;margin:auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:1.6rem;color:var(--blue)}.logo b{color:var(--yel)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.tabs button{flex:none;border:0;background:none;padding:8px 16px;border-radius:999px;font-weight:700;color:var(--mut)}
+.tabs button[aria-current=true]{background:var(--blue);color:#fff}
+#th{border:1px solid var(--line);background:none;border-radius:10px;padding:6px 10px}
+.hero{margin:18px 0;padding:26px 22px;border-radius:22px;background:linear-gradient(135deg,#3B6CF6,#6A4DF4);color:#fff;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(1.6rem,5vw,2.3rem);max-width:20ch}.hero p{margin:0;max-width:48ch;opacity:.92}
+.hero::after{content:"#";position:absolute;right:16px;top:-24px;font:700 9rem Fraunces,serif;color:var(--yel);opacity:.9}
+.grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.unit{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;overflow:hidden}
+.unit>button{width:100%;text-align:left;background:none;border:0;padding:12px 14px;font-weight:700;display:flex;justify-content:space-between}
+.unit>button::after{content:"▾";transition:transform .2s}.unit.open>button::after{transform:rotate(180deg)}
+.unit ul{list-style:none;margin:0;padding:0 8px 8px;display:none}.unit.open ul{display:block}
+.unit li button{width:100%;text-align:left;border:0;background:none;padding:9px 10px;border-radius:9px;color:var(--mut);font-weight:500}
+.unit li button[aria-current=true]{background:var(--soft);color:var(--blue);font-weight:700}
+.tag{display:inline-block;background:var(--soft);color:var(--blue);border-radius:8px;padding:2px 10px;font-size:.82rem;font-weight:700;margin-bottom:8px}
+.lesson h2{font-size:1.75rem}.lesson p,.lesson li{max-width:68ch}
+code{background:var(--soft);padding:1px 6px;border-radius:6px;color:var(--blue)}
+pre{background:var(--code);color:#F5D547;padding:14px;border-radius:14px;overflow-x:auto;font-size:.88rem;line-height:1.5}pre code{background:none;color:inherit;padding:0}
+.out{color:#9BE7B0}
+.note{border-left:4px solid var(--yel);background:var(--soft);padding:10px 14px;border-radius:0 12px 12px 0;margin:14px 0}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.btn{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 20px;font-weight:700}
+.btn.g{background:var(--soft);color:var(--blue)}.btn:disabled{opacity:.4}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}
+.chip{border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:999px;font-weight:700}
+.chip[aria-pressed=true]{background:var(--yel);border-color:var(--yel);color:#1c1600}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.opt.ok{background:#D6F5E0;border-color:#2E9B5A;color:#0E3A20}.opt.no{background:#FADBDB;border-color:#C84545;color:#511616}
+.bar{height:8px;border-radius:5px;background:var(--line);margin-bottom:14px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue);transition:width .3s}
+.big{font:700 3rem Fraunces,serif;color:var(--blue)}
+.ct{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.ct a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.ct a:hover{border-color:var(--blue)}.ct small{color:var(--mut);display:block}.ct b{font-size:1.05rem;word-break:break-all}.ct span{font-size:1.6rem}
+.hide{display:none}
+footer{text-align:center;color:var(--mut);padding:30px 16px;font-size:.9rem}footer b{font-family:Fraunces,serif;font-size:1.2rem;color:var(--blue)}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="w">
+ <div class="top"><div class="logo">#𝗥𝗔𝗗𝗛𝗘𝗬</div><button id="th" aria-label="Toggle theme">◐</button></div>
+ <div class="tabs" id="tabs" role="tablist"></div>
+</div></header>
+
+<main class="w">
+ <section class="hero"><h1>Learn Python and Human Anatomy, step by step.</h1><p>Pick a subject, open a unit, read the topic, then test yourself with a random quiz.</p></section>
+ <section id="study"><div class="grid"><div id="units"></div><article class="card lesson" id="lesson"></article></div></section>
+ <section id="quiz" class="hide"><div class="card" id="qbox"></div></section>
+ <section id="contact" class="hide">
+  <h2>Contact #𝗥𝗔𝗗𝗛𝗘𝗬</h2><p style="color:var(--mut)">Questions, corrections or topic requests? Reach out any time.</p>
+  <div class="ct">
+   <a href="mailto:radheyjii@proton.me"><span>✉</span><small>Email</small><b>radheyjii@proton.me</b></a>
+   <a href="tel:+919395137349"><span>☎</span><small>Phone</small><b>9395137349</b></a>
+   <a href="https://t.me/Youradhey" target="_blank" rel="noopener"><span>✈</span><small>Telegram</small><b>t.me/Youradhey</b></a>
+  </div>
+ </section>
+</main>
+<footer><b>#𝗥𝗔𝗗𝗛𝗘𝗬</b><br>Study notes for pharmacy students</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const SUB={
+"Python Basics":[
+{u:"Unit 1 · Introduction and IDEs",t:[
+["Python introduction",`<p><b>Python</b> is a general-purpose, interpreted, interactive, object-oriented, high-level programming language. It was created by Guido van Rossum between 1985 and 1990, and its source code is available under the GNU General Public License (GPL).</p><h3>Why Python?</h3><ul><li>It is a high-level, interpreted, object-oriented scripting language.</li><li>It is designed to be highly readable.</li><li>It uses English keywords often, where other languages use punctuation, and has fewer syntactical constructions.</li></ul>`],
+["Python IDEs",`<p>An <b>IDE</b> (Integrated Development Environment) is a coding tool that automates editing, compiling and testing, so developers can write, run and debug code easily.</p>
+<h3>PyCharm</h3><p>Built by JetBrains. A cross-platform IDE made for Python, in free open-source and paid versions. Features: smart code navigation, error highlighting, a powerful debugger, and web-framework support.</p>
+<h3>Spyder</h3><p>Open-source IDE with strong recognition in data science. Offers auto code completion, a syntax highlighter and a visual file navigator.</p>
+<h3>Atom</h3><p>Developed by GitHub on the Electron framework (Chromium and Node.js), called the "Hackable Text Editor for the 21st century". Has a Markdown Preview Plus plugin.</p>
+<h3>Wing</h3><p>Cross-platform IDE with completion, syntax highlighting, indentation and debugging. The personal edition is free and Pro has a 30-day trial.</p>
+<h3>Jupyter Notebook</h3><p>A web application on a server-client structure for creating notebook documents. Supports markdown, easy editing, and suits data-science beginners.</p>
+<h3>Thonny</h3><p>Developed at the University of Tartu. Best for learning and teaching, with code completion, syntax highlighting and a simple debugger.</p>
+<h3>Microsoft Visual Studio</h3><p>A code editor for web and cloud projects with its own extension marketplace. Free and paid versions exist.</p>
+<h3>Eric Python</h3><p>An editor written in Python itself. Features: configurable window layout, code folding, project management, version control, a built-in debugger and task management.</p>`]]},
+{u:"Unit 2 · Variables",t:[
+["What is a variable?",`<p>A variable is a name that refers to a memory location. It is also called an <b>identifier</b> and holds a value. Python is smart enough to infer the type, so you never declare it.</p><pre><code>name = "Devansh"
+age = 20
+marks = 80.50
+print(name, age, marks)</code></pre><div class="note"><b>Case matters:</b> <code>Rahul</code> and <code>rahul</code> are two different variables.</div>`],
+["Identifier naming rules",`<ul><li>The first character must be a letter or underscore (<code>_</code>).</li><li>Other characters may be letters, digits or underscores.</li><li>No white-space or special characters (<code>! @ # % ^ &amp; *</code>).</li><li>It must not be a Python keyword.</li><li>Names are case sensitive: <code>myname</code> and <code>MyName</code> differ.</li></ul><p><b>Valid:</b> <code>a123</code>, <code>_n</code>, <code>n_9</code><br><b>Invalid:</b> <code>1a</code>, <code>n%4</code>, <code>n 9</code></p><h3>Naming styles</h3><ul><li><b>Camel case:</b> nameOfStudent</li><li><b>Pascal case:</b> NameOfStudent</li><li><b>Snake case:</b> name_of_student</li></ul><p>Choose descriptive names so your code stays readable.</p>`],
+["Declaring and assigning",`<p>Python does not make you declare a variable before use. The variable is created the moment you assign a value with the <code>=</code> operator.</p><h3>Multiple assignment</h3><pre><code>x = y = z = 50      # one value, many variables
+a, b, c = 5, 10, 15 # many values, many variables
+print(x, y, z)
+print(a, b, c)</code></pre><p class="out">Values are assigned in the order the variables appear.</p>`],
+["Object references and identity",`<p>Python is highly object-oriented, so every value is an object of some class. A variable is a symbolic name that <b>refers</b> to an object.</p><pre><code>print(type("John"))   # &lt;class 'str'&gt;
+a = 50
+b = a                 # b points to the same object
+print(id(a), id(b))   # same number
+a = 500               # a now points to a new object
+print(id(a))          # different number</code></pre><p>The built-in <code>id()</code> returns the unique identity of an object, and <code>type()</code> returns its class.</p>`],
+["Local and global variables",`<p>A <b>local variable</b> is declared inside a function and exists only there.</p><pre><code>def add():
+    a = 20
+    b = 30
+    c = a + b
+    print("The sum is:", c)
+
+add()        # The sum is: 50
+print(a)     # NameError: name 'a' is not defined</code></pre><p>A <b>global variable</b> is declared outside functions and can be read anywhere in the program.</p>`]]},
+{u:"Unit 3 · Data types",t:[
+["Numbers, strings and booleans",`<ul><li><code>int</code>: whole numbers, e.g. <code>500</code></li><li><code>float</code>: decimals, e.g. <code>80.5</code></li><li><code>str</code>: text, e.g. <code>"John"</code></li><li><code>bool</code>: <code>True</code> or <code>False</code></li></ul><pre><code>dose = 500
+weight = 62.5
+drug = "Paracetamol"
+ok = True
+print(type(dose), type(drug))</code></pre><div class="note"><b>Pharmacy use:</b> store a dose as a number, a drug name as text, and an OTC flag as a boolean.</div>`],
+["Lists, tuples, sets and dictionaries",`<ul><li><b>list</b> <code>[1, 2]</code>: ordered and changeable.</li><li><b>tuple</b> <code>(1, 2)</code>: ordered, cannot change.</li><li><b>set</b> <code>{1, 2}</code>: unordered, no duplicates.</li><li><b>dict</b> <code>{"drug": "Aspirin"}</code>: key and value pairs.</li></ul><pre><code>drugs = ["Aspirin", "Ibuprofen"]
+drugs.append("Paracetamol")
+dose = {"Aspirin": 75, "Ibuprofen": 400}
+print(dose["Aspirin"])   # 75</code></pre>`]]}],
+"Human Anatomy":[
+{u:"Unit 1 · Introduction",t:[
+["Anatomical terms and planes",`<p>Anatomy is the study of body structure. Descriptions assume the <b>anatomical position</b>: standing upright, facing forward, palms forward.</p><ul><li><b>Superior / inferior:</b> above / below.</li><li><b>Anterior / posterior:</b> front / back.</li><li><b>Medial / lateral:</b> nearer to / farther from the midline.</li><li><b>Proximal / distal:</b> nearer to / farther from the attachment point.</li></ul><p><b>Planes:</b> sagittal divides left and right, coronal divides front and back, transverse divides top and bottom.</p>`],
+["Levels of organisation and tissues",`<p>The body builds up from chemicals to cells, tissues, organs, organ systems and finally the whole organism.</p><ul><li><b>Epithelial:</b> covers surfaces and lines cavities.</li><li><b>Connective:</b> supports and binds, including bone and blood.</li><li><b>Muscular:</b> produces movement.</li><li><b>Nervous:</b> sends electrical signals.</li></ul><div class="note">Drug absorption depends on crossing epithelial layers such as the gut lining and skin.</div>`]]},
+{u:"Unit 2 · Skeletal system",t:[
+["Bones and their functions",`<p>An adult has <b>206 bones</b>: 80 in the axial skeleton (skull, vertebral column, ribs, sternum) and 126 in the appendicular skeleton (limbs and girdles).</p><p>Functions: support, protection of organs, movement, storage of calcium, and blood-cell production in red bone marrow.</p>`],
+["Joints",`<ul><li><b>Fibrous (fixed):</b> skull sutures.</li><li><b>Cartilaginous (slightly movable):</b> intervertebral discs.</li><li><b>Synovial (freely movable):</b> shoulder, hip, knee.</li></ul><p>Synovial joints contain fluid that lubricates the joint. Hinge (knee, elbow) and ball-and-socket (hip, shoulder) are common types.</p>`]]},
+{u:"Unit 3 · Muscular system",t:[
+["Types of muscle",`<ul><li><b>Skeletal:</b> voluntary, striated, attached to bones.</li><li><b>Smooth:</b> involuntary, found in walls of the gut and blood vessels.</li><li><b>Cardiac:</b> involuntary, striated, found only in the heart.</li></ul><p>Muscle contracts when actin and myosin filaments slide past each other, powered by ATP and triggered by calcium.</p>`]]},
+{u:"Unit 4 · Cardiovascular system",t:[
+["The heart",`<p>The heart has four chambers: right atrium, right ventricle, left atrium and left ventricle. The right side sends blood to the lungs, and the left side sends it to the body.</p><p>Valves: tricuspid (right atrium to ventricle), pulmonary, mitral or bicuspid (left atrium to ventricle), and aortic.</p>`],
+["Circulation and blood pressure",`<p><b>Pulmonary circulation</b> carries blood between heart and lungs; <b>systemic circulation</b> carries it to the rest of the body.</p><p>Blood pressure = cardiac output × peripheral resistance. Normal adult BP is about 120/80 mmHg.</p><div class="note">Antihypertensives work on this equation: diuretics reduce volume, vasodilators reduce resistance, beta-blockers reduce cardiac output.</div>`]]},
+{u:"Unit 5 · Respiratory system",t:[
+["Airway and gas exchange",`<p>Air travels through the nose, pharynx, larynx, trachea, bronchi and bronchioles to the <b>alveoli</b>, where oxygen enters the blood and carbon dioxide leaves it by diffusion.</p><p>Breathing is driven by the diaphragm: it contracts and flattens to draw air in, and relaxes to push air out.</p>`]]},
+{u:"Unit 6 · Nervous system",t:[
+["CNS, PNS and neurons",`<p>The <b>central nervous system</b> (brain and spinal cord) processes information. The <b>peripheral nervous system</b> carries signals to and from the body.</p><p>A neuron has dendrites (receive), a cell body, and an axon (sends). Signals cross gaps called synapses using neurotransmitters.</p>`],
+["Autonomic nervous system",`<ul><li><b>Sympathetic:</b> "fight or flight". Raises heart rate, widens airways.</li><li><b>Parasympathetic:</b> "rest and digest". Slows heart rate, boosts digestion.</li></ul><div class="note">Many drugs copy or block these pathways, for example atropine blocks parasympathetic action.</div>`]]},
+{u:"Unit 7 · Digestive system",t:[
+["Organs and enzymes",`<p>Food moves through the mouth, oesophagus, stomach, small intestine and large intestine. The liver, gall bladder and pancreas assist.</p><ul><li><b>Mouth:</b> amylase starts starch digestion.</li><li><b>Stomach:</b> acid and pepsin digest protein.</li><li><b>Small intestine:</b> most digestion and absorption.</li><li><b>Large intestine:</b> absorbs water.</li></ul>`]]}]};
+const Q=[
+["p","Who created Python?",["Guido van Rossum","James Gosling","Dennis Ritchie"],0],
+["p","Python is best described as…",["Compiled only","Interpreted and object-oriented","Assembly"],1],
+["p","Which IDE was developed by JetBrains?",["Atom","PyCharm","Thonny"],1],
+["p","Which IDE was developed at the University of Tartu?",["Thonny","Wing","Eric"],0],
+["p","Atom is based on which framework?",["Django","Electron","Flask"],1],
+["p","Which is a valid identifier?",["1a","n 9","_n"],2],
+["p","Are 'Rahul' and 'rahul' the same variable?",["Yes","No"],1],
+["p","What does id() return?",["Object identity","Variable type","Length"],0],
+["p","What is the output type of type('John')?",["int","str","list"],1],
+["p","In x = y = z = 50, what does y hold?",["0","None","50"],2],
+["p","Which style is name_of_student?",["Snake case","Pascal case","Camel case"],0],
+["p","Where does a local variable exist?",["Everywhere","Only inside its function","Only in files"],1],
+["p","Which data type has key and value pairs?",["list","tuple","dict"],2],
+["p","Which cannot be changed after creation?",["tuple","list","dict"],0],
+["a","How many bones does an adult have?",["186","206","226"],1],
+["a","Which valve lies between left atrium and left ventricle?",["Mitral","Tricuspid","Aortic"],0],
+["a","Where does gas exchange happen?",["Trachea","Alveoli","Bronchi"],1],
+["a","'Distal' means…",["Nearer the attachment","Farther from the attachment","Front"],1],
+["a","Which muscle is found only in the heart?",["Smooth","Skeletal","Cardiac"],2],
+["a","Which plane divides left from right?",["Sagittal","Coronal","Transverse"],0],
+["a","Which system is 'rest and digest'?",["Sympathetic","Parasympathetic","Somatic"],1],
+["a","Which enzyme starts starch digestion in the mouth?",["Pepsin","Amylase","Lipase"],1],
+["a","Normal adult blood pressure is about…",["120/80 mmHg","200/120 mmHg","80/40 mmHg"],0],
+["a","Which joint type is freely movable?",["Fibrous","Synovial","Cartilaginous"],1]];
+
+// tabs
+const views=[...Object.keys(SUB),"Random Quiz","Contact"];let cur=views[0];
+function tabs(){$('#tabs').innerHTML='';views.forEach(v=>{const b=document.createElement('button');b.textContent=v;b.setAttribute('aria-current',v===cur);b.onclick=()=>{cur=v;tabs();show()};$('#tabs').append(b)})}
+function show(){
+ const s=SUB[cur];
+ $('#study').classList.toggle('hide',!s);$('#quiz').classList.toggle('hide',cur!=="Random Quiz");$('#contact').classList.toggle('hide',cur!=="Contact");
+ document.querySelector('.hero').classList.toggle('hide',cur==="Contact");
+ if(s)units();if(cur==="Random Quiz")qStart();
+}
+// study
+let flat=[],idx=0;
+function units(){
+ const U=$('#units');U.innerHTML='';flat=[];
+ SUB[cur].forEach((u,i)=>{const d=document.createElement('div');d.className='unit'+(i===0?' open':'');
+  d.innerHTML=`<button aria-expanded="${i===0}">${u.u}</button><ul></ul>`;
+  d.querySelector('button').onclick=e=>{d.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',d.classList.contains('open'))};
+  u.t.forEach(t=>{const n=flat.length;flat.push({u:u.u,t:t[0],c:t[1],d});const li=document.createElement('li'),b=document.createElement('button');b.textContent=t[0];b.onclick=()=>open(n,true);li.append(b);d.querySelector('ul').append(li)});
+  U.append(d)});
+ open(0,false);
+}
+function open(n,scroll){
+ idx=n;const f=flat[n];
+ document.querySelectorAll('#units li button').forEach((b,i)=>b.setAttribute('aria-current',i===n));
+ flat.forEach(x=>{});f.d.classList.add('open');
+ $('#lesson').innerHTML=`<span class="tag">${f.u}</span><h2>${f.t}</h2>${f.c}<div class="nav"><button class="btn g" id="pv" ${n?'':'disabled'}>← Previous</button><button class="btn" id="nx" ${n<flat.length-1?'':'disabled'}>Next →</button></div>`;
+ $('#pv').onclick=()=>open(idx-1,true);$('#nx').onclick=()=>open(idx+1,true);
+ if(scroll)$('#lesson').scrollIntoView({behavior:'smooth',block:'start'});
+}
+// quiz
+let mode="all",qs=[],qi=0,sc=0;
+const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function qStart(){
+ $('#qbox').innerHTML=`<h2>Random quiz</h2><p style="color:var(--mut)">10 random questions every time, with shuffled answers.</p><div class="chips">${[["all","Mixed"],["p","Python"],["a","Anatomy"]].map(m=>`<button class="chip" data-m="${m[0]}" aria-pressed="${mode===m[0]}">${m[1]}</button>`).join('')}</div><button class="btn" id="go">Start quiz</button>`;
+ document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{mode=c.dataset.m;qStart()});
+ $('#go').onclick=()=>{qs=sh(Q.filter(q=>mode==="all"||q[0]===mode)).slice(0,10);qi=0;sc=0;qShow()};
+}
+function qShow(){
+ if(qi>=qs.length){const pct=Math.round(sc/qs.length*100);
+  $('#qbox').innerHTML=`<h2>Quiz complete</h2><div class="big">${sc}/${qs.length}</div><p>${pct>=80?'Excellent work!':pct>=50?'Good effort. Review the units and try again.':'Keep studying. Open the units, then retry.'}</p><button class="btn" id="re">New random quiz</button>`;
+  $('#re').onclick=()=>{qs=sh(Q.filter(q=>mode==="all"||q[0]===mode)).slice(0,10);qi=0;sc=0;qShow()};return}
+ const q=qs[qi],o=sh(q[2].map((t,i)=>({t,ok:i===q[3]})));
+ $('#qbox').innerHTML=`<div class="bar"><i style="width:${qi/qs.length*100}%"></i></div><span class="tag">${q[0]==='p'?'Python':'Anatomy'} · Question ${qi+1} of ${qs.length}</span><h3>${q[1]}</h3><div id="op"></div><p id="fb" aria-live="polite"></p><button class="btn hide" id="nq">${qi===qs.length-1?'See score':'Next question'}</button>`;
+ o.forEach(x=>{const b=document.createElement('button');b.className='opt';b.textContent=x.t;b.onclick=()=>{[...$('#op').children].forEach((c,j)=>{c.disabled=true;if(o[j].ok)c.classList.add('ok')});if(x.ok)sc++;else b.classList.add('no');$('#fb').textContent=x.ok?'Correct!':'Not quite. The right answer is highlighted.';$('#nq').classList.remove('hide')};$('#op').append(b)});
+ $('#nq').onclick=()=>{qi++;qShow()};
+}
+$('#th').onclick=()=>{const r=document.documentElement,d=getComputedStyle(r).getPropertyValue('--bg').trim()==='#0C0F24';r.dataset.theme=d?'light':'dark'};
+tabs();show();
+</script>
+</body>
+</html>
